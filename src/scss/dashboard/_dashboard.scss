@@ -1,0 +1,62 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dashboard{
+    background-color: v.$grisClaro;
+    @include m.tablet{
+        display: flex;
+        height: 100vh;
+    }
+
+    .principal{
+        flex: 1;
+        overflow: scroll;
+    }
+    .contenido{
+        padding: 2rem;
+        .nombre-pagina{
+            font-size: 2.8rem;
+            text-align: center;
+        }
+    }
+    .formulario{
+       input:not([type="sumbit"]){
+        background-color: v.$blanco;
+       }
+       input[type="submit"]{
+       @include m.boton(v.$indigo, v.$blanco);
+       padding: 1rem;
+       font-weight: bold;
+       font-size: 1.4rem;
+       }
+    }
+
+    .enlace{
+        color: v.$indigo ;
+        &:hover{
+            overflow: hidden;
+            color: darken(v.$indigo, 20%);
+        }
+    }
+   
+        .btn-eliminar {
+            background-color: #f44336;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          
+            // Efecto de sombra al pasar el cursor sobre el botón
+            &:hover {
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+          
+            // Efecto de animación al hacer clic en el botón
+            &:active {
+              transform: translateY(2px);
+            }
+          }
+    }
